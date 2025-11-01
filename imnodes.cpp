@@ -3234,7 +3234,9 @@ void SaveEditorStateToIniFile(const ImNodesEditorContext* const editor, const ch
 {
     size_t      data_size = 0u;
     const char* data = SaveEditorStateToIniString(editor, &data_size);
+#ifndef IMGUI_DISABLE_FILE_FUNCTIONS
     FILE*       file = ImFileOpen(file_name, "wt");
+#endif
     if (!file)
     {
         return;
